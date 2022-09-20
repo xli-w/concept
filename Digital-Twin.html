@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="theme-color" content="#478ac9">
+  <meta property="og:title" content="Digital Twin">
+  <meta property="og:type" content="website">
+  <title>Live Digital Twin</title>
+
+  <link rel="stylesheet" href="nicepage.css" media="screen">
+  <link rel="stylesheet" href="Digital-Twin.css" media="screen">
+  <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+  <script class="u-script" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer=""></script>
+  <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script> 
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+      /* model-viewer {width: 1056px; height: 500px; margin: 0, auto; overflow: hidden;} */
+      model-viewer {width: 100%; height: 100%; margin: 0, auto; overflow: hidden;}
+  </style>
+
+  <style type="text/css">
+    .station_hotspot {
+        background: #fff;
+        border-radius: 4px;
+        border: none;
+        box-sizing: border-box;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+        color: rgba(0, 0, 0, 0.8);
+        display: block;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        max-width: 128px;
+        overflow-wrap: break-word;
+        padding: 0.6em 1em;
+        position: absolute;
+        width: max-content;
+        height: max-content;
+        transform: translate3d(-50%, -50%, 0);
+        --min-hotspot-opacity: 0.7;
+        --max-hotspot-opacity: 1;
+    }
+
+    .table_btns {
+      box-sizing: border-box;
+      width: max-content;
+      height: max-content;
+    }
+  </style>
+
+  <script>
+    console.log("loaded");
+
+    function load_func() {
+      const modelViewer = document.querySelector("#model_viewer");
+      modelViewer.querySelectorAll('button').forEach((hotspot) => {
+        document.getElementById('station_table_body').innerHTML += '<tr style="height: 20px;"> <td class="u-border-1 u-border-grey-30 u-first-column u-grey-5 u-table-cell u-table-cell-3"><button class="table_btns" onclick="hotspot_fakeclick(this.innerHTML)">' + hotspot.innerHTML.replace(/\s+/g, '') + '</button></td><td class="u-border-1 u-border-grey-30 u-custom-color-2 u-table-cell u-table-cell-4"></td></tr>';
+
+      });
+    }
+
+  </script>
+
+</head>
+
+  <body class="u-body u-xl-mode" data-lang="en" onload="load_func();">
+    <header class="u-clearfix u-header u-header" id="sec-9dc5">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <a href="Digital-Twin.html" class="u-image u-logo u-image-1" data-image-width="1024" data-image-height="1024">
+          <img src="images/BMW_logo_gray.svg.png" class="u-logo-image u-logo-image-1">
+        </a>
+
+       <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
+            <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+              </g></svg>
+            </a>
+          </div>
+
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled u-nav-1">
+              <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Digital-Twin.html" style="padding: 10px 20px;">Digital Twin</a></li>
+              <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Settings.html" style="padding: 10px 20px;">Settings</a></li>
+            </ul>
+          </div>
+            <div class="u-custom-menu u-nav-container-collapse">
+              <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+                <div class="u-inner-container-layout u-sidenav-overflow">
+                  <div class="u-menu-close"></div>
+                  <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
+                    <li class="u-nav-item">
+                    <a class="u-button-style u-nav-link" href="Digital-Twin.html">Digital Twin</a></li>
+                    <li class="u-nav-item">
+                    <a class="u-button-style u-nav-link" href="Settings.html">Settings</a></li>
+                  </ul>
+                </div>
+              </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+
+    <section class="u-clearfix u-section-1" id="sec-78ec">
+      <div class="u-clearfix u-layout-wrap u-layout-wrap-1">
+        <div class="u-gutter-0 u-layout">
+          <div class="u-layout-row"><div class="u-size-50"><div class="u-layout-col">
+
+            <div class="u-container-style u-border-1 u-layout-cell u-shape-rectangle u-size-30 u-layout-cell-1">
+
+              <!-- to implement model switching, the .innerHTML section below will have to be swapped out, and the div reloaded uisng jquery?
+              (this is because inbuilt modelviewer swapping wouldnt allow unique settings or hotspots - unless settings can be changed)-->
+              <model-viewer id="model_viewer" 
+                src="model.glb" 
+                alt="Model" 
+                camera-controls 
+                touch-action="none"
+                interaction-prompt="none"
+                camera-orbit="0deg 50deg 75%" 
+                camera-target="0m 0m 0m" 
+                field-of-view="45deg" min-field-of-view="25deg" max-field-of-view="45deg" 
+                interpolation-decay="200" 
+                min-camera-orbit="auto 5deg 20%"
+                max-camera-orbit="auto 89deg 100%" 
+                ar>
+    
+                <button class="station_hotspot" slot="hotspot-0" data-position="7.7m 0.5m 1.9m" data-orbit="30deg 65deg 25%" >
+                Stn10
+                </button>      
+                <button class="station_hotspot" slot="hotspot-1" data-position="4.2m 0.5m 1m" data-orbit="0deg 65deg 25%" >
+                Stn20
+                </button>
+                <button class="station_hotspot" slot="hotspot-2" data-position="4.2m 0.5m -6.1m" data-orbit="-45deg 30deg 30%" >
+                Stn30
+                </button>
+                <button class="station_hotspot" slot="hotspot-3" data-position="4.2m 0.5m -3.5m" data-orbit="-15deg 58deg 25%" >
+                Stn40
+                </button>
+                <button class="station_hotspot" slot="hotspot-4" data-position="1.1m 0.5m -3.8m" data-orbit="20deg 50deg 25%" >
+                Stn50
+                </button>
+                <button class="station_hotspot" slot="hotspot-5" data-position="-6.6m 0.5m -2.3m" data-orbit="40deg 40deg 35%" >
+                Stn60
+                </button>
+                <button class="station_hotspot" slot="hotspot-6" data-position="-5.6m 0.5m 2m" data-orbit="20deg 50deg 25%" >
+                Stn70
+                </button>
+                <button class="station_hotspot" slot="hotspot-7" data-position="-5.9m 0.5m -5.8m" data-orbit="40deg 35deg 35%" >
+                Stn80
+                </button>
+
+              </model-viewer>
+
+              <script>
+                /* this breaks the hotspot click eventhandler for no reason... var [materials] = modelViewer.model.materials;  */
+                /* materials[3].pbrMetallicRoughness.setBaseColorFactor([Math.random(), Math.random(), Math.random()]); */
+
+                var modelViewer = document.querySelector("#model_viewer");
+
+                function annotationClicked(annotation) {
+                let dataset = annotation.dataset;
+                modelViewer.cameraTarget = dataset.position;
+                modelViewer.cameraOrbit = dataset.orbit;
+                modelViewer.fieldOfView = '45deg';
+          
+                modelViewer.pause();
+                modelViewer.animationName = "anim_" + annotation.innerHTML.replace(/\s+/g, '');
+                modelViewer.play({repetitions: 1}) 
+                /* may be needed for sequential modelviewer operations:   await modelViewer.updateComplete;}; */
+                
+                }
+            
+                modelViewer.querySelectorAll('button').forEach((hotspot) => {
+                hotspot.addEventListener('click', () => annotationClicked(hotspot));
+                });
+              </script>
+            </div>
+
+            <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+              <div class="u-container-layout u-container-layout-2">
+                <div class="u-expanded-width u-tabs u-tabs-1">
+                  <ul class="u-tab-list u-unstyled" role="tablist">
+                    <li class="u-tab-item" role="presentation">
+                      <a class="active u-button-style u-tab-link" id="link-tab-7ec8" href="#tab-7ec8" role="tab" aria-controls="tab-7ec8" aria-selected="true">General</a>
+                    </li>
+                    <li class="u-tab-item" role="presentation">
+                      <a class="u-button-style u-tab-link" id="link-tab-502a" href="#tab-502a" role="tab" aria-controls="tab-502a" aria-selected="false">Data 2</a>
+                    </li>
+                    <li class="u-tab-item" role="presentation">
+                      <a class="u-button-style u-tab-link" id="link-tab-4ec1" href="#tab-4ec1" role="tab" aria-controls="tab-4ec1" aria-selected="false">Data 3</a>
+                    </li>
+                  </ul>
+                  <div class="u-tab-content">
+                    <div class="u-container-style u-tab-active u-tab-pane" id="tab-7ec8" role="tabpanel" aria-labelledby="link-tab-7ec8">
+                      <div class="u-container-layout u-container-layout-3"></div>
+                    </div>
+                    <div class="u-container-style u-tab-pane" id="tab-502a" role="tabpanel" aria-labelledby="link-tab-502a">
+                      <div class="u-container-layout u-container-layout-4"></div>
+                    </div>
+                    <div class="u-container-style u-tab-pane" id="tab-4ec1" role="tabpanel" aria-labelledby="link-tab-4ec1">
+                      <div class="u-container-layout u-container-layout-5"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="u-size-10">
+          <div class="u-layout-col">
+            <div class="u-container-style u-layout-cell u-size-60 u-layout-cell-3">
+              <div class="u-container-layout u-container-layout-6">
+                <div class="u-expanded-width u-table u-table-responsive u-table-1">
+
+                  <table class="u-table-entity">
+                    <colgroup>
+                      <col width="80%">
+                      <col width="20%">
+                    </colgroup>
+
+                    <thead class="u-custom-color-1 u-table-header u-table-header-1">
+                      <tr style="height: 39px;">
+                        <th class="u-table-cell u-border-1 u-border-palette-4-base" >Station</th>
+                        <th class="u-border-1 u-border-palette-4-base u-table-cell">Status</th>
+                      </tr>
+                    </thead>
+
+                    <tbody class="u-align-center u-table-body u-table-body-1" id="station_table_body">
+                      <script>
+                        function hotspot_fakeclick(stn) {
+                          var selected_hotspot = null;
+
+                          modelViewer.querySelectorAll('button').forEach((hotspot) => {
+                          if (hotspot.innerHTML.replace(/\s+/g, '') == stn.replace(/\s+/g, '')) {
+                            console.log("found " + hotspot.innerHTML.replace(/\s+/g, ''))
+                            selected_hotspot = hotspot;}
+                          });         
+                          annotationClicked(selected_hotspot);
+                        }
+                      </script>
+                    </tbody>
+                  </table>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-8559">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">Live Digital Twin - Plant Hams Hall</p>
+      </div>
+    </footer>
+  
+
+  </body>
+</html>
